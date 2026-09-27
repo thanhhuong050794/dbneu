@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BI Dashboard - Tuyen sinh NEU/PTIT</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">📊 BI Dashboard — Tuyển sinh NEU/PTIT</div>
+  <div class="status" id="dbStatus">Đang kiểm tra kết nối...</div>
+</header>
+
+<main>
+  <!-- KPI cards -->
+  <section class="kpi-grid" id="kpiGrid"></section>
+
+  <!-- Export buttons -->
+  <section class="export-bar">
+    <span>Xuất báo cáo:</span>
+    <a class="btn btn-excel" href="/api/export/excel">⬇ Excel</a>
+    <a class="btn btn-word" href="/api/export/word">⬇ Word</a>
+    <a class="btn btn-pdf" href="/api/export/pdf">⬇ PDF</a>
+  </section>
+
+  <!-- Charts -->
+  <section class="chart-grid">
+    <div class="card">
+      <h3>Phân bố theo khu vực</h3>
+      <canvas id="chartRegion"></canvas>
+    </div>
+    <div class="card">
+      <h3>Trạng thái thanh toán</h3>
+      <canvas id="chartPayment"></canvas>
+    </div>
+    <div class="card">
+      <h3>Top trường</h3>
+      <canvas id="chartSchool"></canvas>
+    </div>
+    <div class="card">
+      <h3>Segment marketing</h3>
+      <canvas id="chartSegment"></canvas>
+    </div>
+    <div class="card">
+      <h3>Nguồn tiếp cận (đa kênh)</h3>
+      <canvas id="chartSource"></canvas>
+    </div>
+    <div class="card">
+      <h3>Doanh thu theo khu vực</h3>
+      <canvas id="chartRevenue"></canvas>
+    </div>
+    <div class="card wide">
+      <h3>Đăng ký web theo thời gian</h3>
+      <canvas id="chartTimeline"></canvas>
+    </div>
+    <div class="card">
+      <h3>Lỗi dữ liệu (Data Quality)</h3>
+      <canvas id="chartQuality"></canvas>
+    </div>
+    <div class="card">
+      <h3>Danh sách thi theo tỉnh/thành</h3>
+      <canvas id="chartExamCity"></canvas>
+    </div>
+  </section>
+
+  <!-- Drip segment table -->
+  <section class="card">
+    <h3>Drip Segments (email marketing)</h3>
+    <table class="data-table" id="dripTable">
+      <thead>
+        <tr><th>Drip</th><th>Segment</th><th>Điều kiện vào</th><th>Mục tiêu</th><th>Số liên hệ</th><th>Gửi được</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Contact list table -->
+  <section class="card">
+    <h3>Danh sách liên hệ (Master Contacts)</h3>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Tìm theo tên / email / mã liên hệ...">
+      <select id="regionFilter"><option value="">Tất cả khu vực</option></select>
+      <select id="paymentFilter"><option value="">Tất cả trạng thái</option></select>
+      <button class="btn" onclick="loadContacts(1)">Lọc</button>
+    </div>
+    <table class="data-table" id="contactsTable">
+      <thead>
+        <tr>
+          <th>Mã</th><th>Họ tên</th><th>Email</th><th>SĐT</th>
+          <th>Khu vực</th><th>Trường</th><th>Thanh toán</th><th>Segment</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="pagination" id="pagination"></div>
+  </section>
+</main>
+
+<footer>
+  NEU Case Study — BI Visualization App · Backend: Flask + MongoDB · Frontend: HTML/CSS/JS + Chart.js
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
