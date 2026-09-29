@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BI Dashboard - Phân tích THPT</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">📊 BI Dashboard — Phân tích THPT</div>
+  <nav class="nav-links">
+    <a href="index.html" class="nav-item">Tổng quan Tuyển sinh</a>
+    <a href="daihoc.html" class="nav-item">Phân tích Đại học</a>
+    <a href="thpt.html" class="nav-item active">Phân tích THPT</a>
+  </nav>
+  <div class="status" id="dbStatus">Đang kiểm tra kết nối...</div>
+</header>
+
+<main>
+  <!-- Export buttons -->
+  <section class="export-bar">
+    <span>Xuất báo cáo:</span>
+    <a class="btn btn-excel" href="/api/export/excel">⬇ Excel</a>
+    <a class="btn btn-word" href="/api/export/word">⬇ Word</a>
+    <a class="btn btn-pdf" href="/api/export/pdf">⬇ PDF</a>
+  </section>
+
+  <!-- Khu vực nội dung phần THPT -->
+  <section class="chart-grid" id="thptContent">
+    <!-- 1. Điểm TB các trường THPT -->
+    <div class="card wide">
+      <h3>Điểm TB các trường THPT (thang 1.000)</h3>
+      <canvas id="chartThptAvgScore"></canvas>
+    </div>
+
+    <!-- 2. Tương quan Điểm TB và Tỉ lệ đạt chứng chỉ -->
+    <div class="card wide">
+      <h3>Tương quan Điểm TB và Tỉ lệ đạt chứng chỉ</h3>
+      <canvas id="chartThptScatterCert"></canvas>
+    </div>
+    <!-- 3. Phân bố điểm Vòng loại (24 HS Bảng A) -->
+    <div class="card wide">
+      <h3>Phân bố điểm Vòng loại (24 HS Bảng A)</h3>
+      <canvas id="chartThptScoreDistribution"></canvas>
+    </div>
+    <!-- 4. Điểm tổng hợp xếp hạng học thuật -->
+    <div class="card wide">
+      <h3>Điểm tổng hợp xếp hạng học thuật (thang 100)</h3>
+      <canvas id="chartThptAcademicRank"></canvas>
+    </div>
+    <!-- 5. So sánh % điểm tối đa theo từng kỹ năng -->
+    <div class="card wide">
+      <h3>So sánh % điểm tối đa theo từng kỹ năng</h3>
+      <canvas id="chartThptSkillCompare"></canvas>
+    </div>
+    <!-- 6. Top 10 HS Bảng A Toàn Quốc -->
+    <div class="card wide">
+      <h3>Top 10 HS Bảng A Toàn Quốc</h3>
+      <canvas id="chartThptTop10National"></canvas>
+    </div>
+    <!-- 7. Top 5 HS THPT Chu Văn An -->
+    <div class="card wide">
+      <h3>Top 5 học sinh tiêu biểu của trường THPT Chu Văn An (theo điểm vòng loại)</h3>
+      <canvas id="chartThptTop5ChuVanAn"></canvas>
+    </div>
+    <!-- 8. Top 5 HS THPT Nguyễn Huệ -->
+    <div class="card wide">
+      <h3>Top 5 học sinh tiêu biểu của trường THPT Nguyễn Huệ (theo điểm vòng loại)</h3>
+      <canvas id="chartThptTop5NguyenHue"></canvas>
+    </div>
+    <!-- 9. Top 5 HS THPT Lê Quý Đôn -->
+    <div class="card wide">
+      <h3>Top 5 học sinh tiêu biểu của trường THPT Lê Quý Đôn (theo điểm vòng loại)</h3>
+      <canvas id="chartThptTop5LeQuyDon"></canvas>
+    </div>
+    <!-- 10. Top 5 HS THPT Việt Đức -->
+    <div class="card wide">
+      <h3>Top 5 học sinh tiêu biểu của trường THPT Việt Đức (theo điểm vòng loại)</h3>
+      <canvas id="chartThptTop5VietDuc"></canvas>
+    </div>
+        <!-- 11. Top 5 HS THPT Kim Liên -->
+    <div class="card wide">
+      <h3>Top 5 học sinh tiêu biểu của trường THPT Kim Liên (theo điểm vòng loại)</h3>
+      <canvas id="chartThptTop5KimLien"></canvas>
+    </div>
+  </section>
+</main>
+
+<footer>
+  NEU Case Study — BI Visualization App · Chuyên đề Phân tích THPT
+</footer>
+
+<script src="thpt.js"></script>
+</body>
+</html>

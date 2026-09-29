@@ -11,6 +11,11 @@
 
 <header class="topbar">
   <div class="brand">📊 BI Dashboard — Tuyển sinh NEU/PTIT</div>
+  <nav class="nav-links">
+    <a href="index.html" class="nav-item active">Tổng quan Tuyển sinh</a>
+    <a href="daihoc.html" class="nav-item">Phân tích Đại học</a>
+    <a href="thpt.html" class="nav-item">Phân tích THPT</a>
+  </nav>
   <div class="status" id="dbStatus">Đang kiểm tra kết nối...</div>
 </header>
 
@@ -28,41 +33,93 @@
 
   <!-- Charts -->
   <section class="chart-grid">
-    <div class="card">
-      <h3>Phân bố theo khu vực</h3>
+    <div class="card wide">
+      <h3>PHÂN BỐ ĐIỂM VÒNG LOẠI (thang 1000)</h3>
       <canvas id="chartRegion"></canvas>
     </div>
-    <div class="card">
-      <h3>Trạng thái thanh toán</h3>
+    <div class="card wide">
+      <h3>ĐIỂM CHUNG KẾT THEO TỪNG THÍ SINH</h3>
       <canvas id="chartPayment"></canvas>
     </div>
-    <div class="card">
-      <h3>Top trường</h3>
+    <div class="card wide">
+      <h3>SO SÁNH ĐIỂM TRUNG BÌNH VÒNG LOẠI vs CHUNG KẾT</h3>
       <canvas id="chartSchool"></canvas>
     </div>
-    <div class="card">
-      <h3>Segment marketing</h3>
+    <div class="card wide">
+      <h3>Phễu hành trình cuộc thi Python Master</h3>
       <canvas id="chartSegment"></canvas>
     </div>
-    <div class="card">
-      <h3>Nguồn tiếp cận (đa kênh)</h3>
+    <div class="card wide">
+      <h3>Doanh thu & hoa hồng theo ngày (Đối tác info)</h3>
       <canvas id="chartSource"></canvas>
     </div>
     <div class="card">
-      <h3>Doanh thu theo khu vực</h3>
+      <h3>Doanh thu theo bảng thi</h3>
       <canvas id="chartRevenue"></canvas>
     </div>
     <div class="card wide">
-      <h3>Đăng ký web theo thời gian</h3>
+      <h3>Doanh thu & hoa hồng theo tháng đăng ký</h3>
       <canvas id="chartTimeline"></canvas>
     </div>
     <div class="card">
-      <h3>Lỗi dữ liệu (Data Quality)</h3>
+      <h3>Doanh thu & hoa hồng theo ngày (Đối tác miền nam)</h3>
       <canvas id="chartQuality"></canvas>
     </div>
-    <div class="card">
-      <h3>Danh sách thi theo tỉnh/thành</h3>
+    <div class="card wide">
+      <h3>DDoanh thu & hoa hồng theo ngày (Đối tác metaads)</h3>
       <canvas id="chartExamCity"></canvas>
+    </div>
+    <div class="card wide">
+      <h3>BÁO CÁO HIỆU QUẢ TRUYỀN THÔNG - ROI theo kênh (%)</h3>
+      <canvas id="chartROI"></canvas>
+    </div>
+    <div class="card wide">
+      <h3>Ngân sách vs Doanh thu (VNĐ)</h3>
+      <canvas id="chartBudgetRevenue"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>THEO DÕI QUYỀN LỢI TÀI TRỢ / ĐỐI TÁC</h3>
+      <canvas id="chartSponsorBenefit"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Tỷ lệ tương tác theo kênh (%)</h3>
+      <canvas id="chartEngagementRate"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Phân bố thí sinh theo tỉnh/thành</h3>
+      <canvas id="chartProvinceDistribution"></canvas>
+    </div>
+    <div class="card wide">
+      <h3>Đăng ký và thanh toán theo vùng miền</h3>
+      <canvas id="chartRegionPayment"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Nhóm tuổi theo khu vực</h3>
+      <canvas id="chartAgeByRegion"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Số lượng nhân lực theo Tier</h3>
+      <canvas id="chartTierCount"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Top 10 SV - Điểm Debugging (/280)</h3>
+      <canvas id="chartTopDebugging"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Top 10 SV - Điểm Design (/280)</h3>
+      <canvas id="chartTopDesign"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Điểm TB các trường so với TB toàn quốc (thang 1.000)</h3>
+      <canvas id="chartSchoolAvgScore"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Nguyễn Đức Thành vs TB toàn quốc</h3>
+      <canvas id="chartStudentVsAvg"></canvas>
+    </div>
+        <div class="card wide">
+      <h3>Hồ Tuấn Hạnh vs TB toàn quốc</h3>
+      <canvas id="chartHoTuanHanhVsAvg"></canvas>
     </div>
   </section>
 
