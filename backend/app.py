@@ -28,6 +28,11 @@ def index():
     return send_from_directory(FRONTEND_DIR, "index.html")
 
 
+@app.route("/daihoc")
+def daihoc():
+    return send_from_directory(FRONTEND_DIR, "daihoc.html")
+
+
 # ---------------------------------------------------------------------------
 # API: he thong
 # ---------------------------------------------------------------------------

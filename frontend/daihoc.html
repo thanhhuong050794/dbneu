@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BI Dashboard - Phân tích Đại học & Sinh viên</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">📊 BI Dashboard — Phân tích Đại học & Sinh viên</div>
+  <nav class="nav-links">
+    <a href="index.html" class="nav-item">Tổng quan Tuyển sinh</a>
+    <a href="daihoc.html" class="nav-item active">Phân tích Đại học</a>
+  </nav>
+  <div class="status" id="dbStatus">Đang kiểm tra kết nối...</div>
+</header>
+
+<main>
+  <!-- Export buttons -->
+  <section class="export-bar">
+    <span>Xuất báo cáo:</span>
+    <a class="btn btn-excel" href="/api/export/excel">⬇ Excel</a>
+    <a class="btn btn-word" href="/api/export/word">⬇ Word</a>
+    <a class="btn btn-pdf" href="/api/export/pdf">⬇ PDF</a>
+  </section>
+
+  <!-- Khu vực nội dung phần Đại học -->
+  <section class="chart-grid" id="universityContent">
+    <!-- 1. Điểm TB các trường ĐH so với TB toàn quốc -->
+    <div class="card wide">
+      <h3>Điểm TB các trường ĐH so với TB toàn quốc (thang 1.000)</h3>
+      <canvas id="chartSchoolAvgScore"></canvas>
+    </div>
+
+    <!-- 2. Top 10 sinh viên toàn quốc theo tổng điểm -->
+    <div class="card wide">
+      <h3>Top 10 sinh viên toàn quốc theo tổng điểm</h3>
+      <canvas id="chartTop10TotalScore"></canvas>
+    </div>
+
+    <!-- 3. Tỉ lệ SV đạt chứng chỉ COS Pro theo trường (%) -->
+    <div class="card wide">
+      <h3>Tỉ lệ SV đạt chứng chỉ COS Pro theo trường (%)</h3>
+      <canvas id="chartCertRateBySchool"></canvas>
+    </div>
+
+    <!-- 4. Số SV tham gia theo từng trường ĐH -->
+    <div class="card wide">
+      <h3>Số SV tham gia theo từng trường ĐH</h3>
+      <canvas id="chartStudentCountBySchool"></canvas>
+    </div>
+
+    <!-- 5. Điểm cao nhất của từng trường ĐH -->
+    <div class="card wide">
+      <h3>Điểm cao nhất của từng trường ĐH</h3>
+      <canvas id="chartMaxScoreBySchool"></canvas>
+    </div>
+
+    <!-- 6. Số SV top theo nhóm (Top 10 - Top 25 - Top 50) theo từng trường -->
+    <div class="card wide">
+      <h3>Số SV top theo nhóm (Top 10 - Top 25 - Top 50) theo từng trường</h3>
+      <canvas id="chartTopRankBySchool"></canvas>
+    </div>
+
+    <!-- 7. Top 5 sinh viên tiêu biểu của PTIT (theo điểm vòng loại) -->
+    <div class="card wide">
+      <h3>Top 5 sinh viên tiêu biểu của PTIT (theo điểm vòng loại)</h3>
+      <canvas id="chartTopPtitStudents"></canvas>
+    </div>
+
+    <!-- 8. Top 5 sinh viên tiêu biểu của UET (theo điểm vòng loại) -->
+    <div class="card wide">
+      <h3>Top 5 sinh viên tiêu biểu của UET (theo điểm vòng loại)</h3>
+      <canvas id="chartTopUetStudents"></canvas>
+    </div>
+
+    <!-- 9. Top 5 sinh viên tiêu biểu của HUST (theo điểm vòng loại) -->
+    <div class="card wide">
+      <h3>Top 5 sinh viên tiêu biểu của HUST (theo điểm vòng loại)</h3>
+      <canvas id="chartTopHustStudents"></canvas>
+    </div>
+
+    <!-- 10. Phân bổ sinh viên tiềm năng theo phân loại -->
+    <div class="card wide">
+      <h3>Phân bổ sinh viên tiềm năng theo phân loại</h3>
+      <div style="max-width: 550px; margin: 0 auto;">
+        <canvas id="chartPotentialTierDistribution"></canvas>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  NEU Case Study — BI Visualization App · Chuyên đề Phân tích Đại học & Sinh viên
+</footer>
+
+<script src="daihoc.js"></script>
+</body>
+</html>
